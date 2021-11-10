@@ -145,7 +145,7 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <a className="navbar-brand" href="#">
-          <img class="nav-logo" src={logo} height="45" />
+          <img className="nav-logo" src={logo} height="45" />
         </a>
         <div className="input-group input-group-sm my-2">
           <input
