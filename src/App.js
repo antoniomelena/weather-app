@@ -1,5 +1,5 @@
 import "./App.css";
-import logo from "./img/logo.png";
+import logo from "./img/logo.webp";
 import { useState, useEffect } from "react";
 import {
   WiDaySunny,
@@ -145,7 +145,7 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <a className="navbar-brand" href="#">
-          <img src={logo} height="45" />
+          <img class="nav-logo" src={logo} height="45" />
         </a>
         <div className="input-group input-group-sm my-2">
           <input
