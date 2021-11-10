@@ -1,23 +1,69 @@
+* {
+  text-align: center;
+}
+
+body {
+  background: url("./img/sky.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar {
+  padding: 1em;
+}
+.btn {
+  font-size: 1.5em;
+  padding: 0;
+}
+
+.main {
+  padding: 100px 0;
+}
+.row {
+  /* display: flex; */
+  display: block;
+  min-height: calc(100vh - 100px);
+  justify-content: space-between;
+}
+.main-text {
+  min-width: 450px;
+  /* width: 65%; */
+}
+
+.weather-icon {
+  font-size: 19em;
+}
+
+.day {
+  color: rgb(255, 128, 82);
+}
+
+.night {
+  color: navy;
+}
+
 .input-group {
   max-width: 500px;
   margin: 0 auto;
 }
 
-.icon {
+.sidebar {
+  /* width: 35%; */
+  align-items: center;
+  display: grid;
+}
+.sidebar-icon {
+  font-size: 2em;
+}
+.grid-item {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.card {
-  text-align: center;
-  min-height: 75vh;
-  max-width: 500px;
-  border: 1px solid #8b8b8b;
-  border-radius: 15px;
-  margin: 3em auto;
-  background-color: whitesmoke;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+@media (min-width: 45em) {
+  .row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
 }
