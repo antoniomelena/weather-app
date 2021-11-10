@@ -145,7 +145,12 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <a className="navbar-brand" href="#">
-          <img className="nav-logo" src={logo} height="45" />
+          <img
+            className="nav-logo"
+            src={logo}
+            height="45"
+            alt="openweathermap logo"
+          />
         </a>
         <div className="input-group input-group-sm my-2">
           <input
@@ -180,7 +185,7 @@ function App() {
           <h2>{capitalize(description)}</h2>
         </div>
         <div className="sidebar">
-          <h4>Details</h4>
+          <h3>Details</h3>
           <div className="grid-item">
             <WiThermometerExterior className="sidebar-icon" />
             <p>Feels Like </p>
