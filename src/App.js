@@ -132,7 +132,7 @@ function App() {
       setIcon(icon);
     } catch (error) {
       setIcon("na");
-      console.log("Error happened: ", error);
+      // console.log("Error happened: ", error);
     }
   }
 
