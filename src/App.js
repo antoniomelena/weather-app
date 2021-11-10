@@ -34,7 +34,6 @@ function App() {
   const [humidity, setHumidity] = useState("");
   const [maxTemp, setMaxTemp] = useState("");
   const [minTemp, setMinTemp] = useState("");
-  const [windDeg, setWindDeg] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
   const [icon, setIcon] = useState("");
   const [fahrenheit, setFahrenheit] = useState(true);
@@ -120,7 +119,6 @@ function App() {
       const max_temp = city_data.main.temp_max;
       const min_temp = city_data.main.temp_min;
       const city_description = city_data.weather[0].description;
-      const wind_deg = city_data.wind.deg;
       const wind_speed = city_data.wind.speed;
       const icon = city_data.weather[0].icon;
       setName(city_name);
@@ -130,7 +128,6 @@ function App() {
       setCurrentTemp(current_temp);
       setMinTemp(min_temp);
       setMaxTemp(max_temp);
-      setWindDeg(wind_deg);
       setWindSpeed(wind_speed);
       setIcon(icon);
     } catch (error) {
