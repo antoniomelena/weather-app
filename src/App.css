@@ -1,3 +1,21 @@
+:root {
+  --primary: rgb(50, 120, 210);
+  --secondary: rgb(146, 138, 144);
+  --success: rgb(50, 190, 100);
+  --warning: rgb(254, 192, 45);
+  --danger: rgb(198, 16, 63);
+  --info: rgb(117, 152, 193);
+  --dark: rgb(50, 60, 60);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 * {
   text-align: center;
 }
@@ -54,9 +72,11 @@ body {
 }
 
 .sidebar {
-  /* width: 35%; */
+  color: #fff;
   align-items: center;
   display: grid;
+  background: rgb(5 3 0 / 40%);
+  backdrop-filter: blur(10px);
 }
 .sidebar-icon {
   font-size: 2em;

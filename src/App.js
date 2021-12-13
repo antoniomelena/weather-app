@@ -100,46 +100,45 @@ function App() {
   };
 
   const handleChange = (event) => {
-    setCity(event.target.value);
+    setName(event.target.value);
   };
 
-  async function getWeather() {
-    try {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${
-          fahrenheit ? "imperial" : "metric"
-        }&APPID=e395dd8336d145da909e963c0606d556`,
-        { mode: "cors" }
-      );
-      const city_data = await res.json();
-      const city_name = city_data.name;
-      const city_humidity = city_data.main.humidity;
-      const feels_like = city_data.main.feels_like;
-      const current_temp = city_data.main.temp;
-      const max_temp = city_data.main.temp_max;
-      const min_temp = city_data.main.temp_min;
-      const city_description = city_data.weather[0].description;
-      const wind_speed = city_data.wind.speed;
-      const icon = city_data.weather[0].icon;
-      setName(city_name);
-      setDescription(city_description);
-      setFeelsLike(feels_like);
-      setHumidity(city_humidity);
-      setCurrentTemp(current_temp);
-      setMinTemp(min_temp);
-      setMaxTemp(max_temp);
-      setWindSpeed(wind_speed);
-      setIcon(icon);
-    } catch (error) {
-      setIcon("na");
-      // console.log("Error happened: ", error);
-    }
-  }
-
   useEffect(() => {
+    async function getWeather() {
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${
+            fahrenheit ? "imperial" : "metric"
+          }&APPID=e395dd8336d145da909e963c0606d556`,
+          { mode: "cors" }
+        );
+        const city_data = await res.json();
+        const city_name = city_data.name;
+        const city_humidity = city_data.main.humidity;
+        const feels_like = city_data.main.feels_like;
+        const current_temp = city_data.main.temp;
+        const max_temp = city_data.main.temp_max;
+        const min_temp = city_data.main.temp_min;
+        const city_description = city_data.weather[0].description;
+        const wind_speed = city_data.wind.speed;
+        const icon = city_data.weather[0].icon;
+        setName(city_name);
+        setDescription(city_description);
+        setFeelsLike(feels_like);
+        setHumidity(city_humidity);
+        setCurrentTemp(current_temp);
+        setMinTemp(min_temp);
+        setMaxTemp(max_temp);
+        setWindSpeed(wind_speed);
+        setIcon(icon);
+      } catch (error) {
+        setIcon("na");
+      }
+    }
+
     getWeather();
     return () => {};
-  }, [fahrenheit, name]);
+  }, [fahrenheit, city]);
 
   return (
     <div className="App">
@@ -165,7 +164,8 @@ function App() {
           <button
             type="submit"
             className="btn btn-secondary"
-            onClick={getWeather}
+            onClick={() => setCity(name)}
+            // onClick={getWeather}
           >
             enter
           </button>
@@ -176,16 +176,16 @@ function App() {
       </nav>
       <main className="row">
         <div className="container main-text">
-          <p>{find(icon)}</p>
-          <h3>{name}</h3>
+          {find(icon)}
           <h1>
             {Math.round(currentTemp)}
             <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>
           </h1>
+          <h3>{capitalize(city)}</h3>
           <h2>{capitalize(description)}</h2>
         </div>
         <div className="sidebar">
-          <h3>Details</h3>
+          <h3>Weather Details</h3>
           <div className="grid-item">
             <WiThermometerExterior className="sidebar-icon" />
             <p>Feels Like </p>
