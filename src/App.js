@@ -59,43 +59,43 @@ function App() {
   const find = (icon) => {
     switch (icon) {
       case "01d":
-        return <WiDaySunny className="weather-icon day" />;
+        return <WiDaySunny className="weather-icon " />;
       case "01n":
-        return <WiNightClear className="weather-icon night" />;
+        return <WiNightClear className="weather-icon " />;
       case "02d":
-        return <WiDayCloudy className="weather-icon day" />;
+        return <WiDayCloudy className="weather-icon" />;
       case "02n":
-        return <WiNightAltCloudy className="weather-icon night" />;
+        return <WiNightAltCloudy className="weather-icon" />;
       case "03d":
-        return <WiCloud className="weather-icon day" />;
+        return <WiCloud className="weather-icon" />;
       case "03n":
-        return <WiCloud className="weather-icon night" />;
+        return <WiCloud className="weather-icon" />;
       case "04d":
-        return <WiCloudy className="weather-icon day" />;
+        return <WiCloudy className="weather-icon" />;
       case "04n":
-        return <WiCloudy className="weather-icon night" />;
+        return <WiCloudy className="weather-icon" />;
       case "09d":
-        return <WiDayRain className="weather-icon day" />;
+        return <WiDayRain className="weather-icon" />;
       case "09n":
-        return <WiNightAltRainWind className="weather-icon night" />;
+        return <WiNightAltRainWind className="weather-icon" />;
       case "10d":
-        return <WiDayRain className="weather-icon day" />;
+        return <WiDayRain className="weather-icon" />;
       case "10n":
-        return <WiNightAltRain className="weather-icon night" />;
+        return <WiNightAltRain className="weather-icon" />;
       case "11d":
-        return <WiDayThunderstorm className="weather-icon day" />;
+        return <WiDayThunderstorm className="weather-icon" />;
       case "11n":
-        return <WiNightAltLightning className="weather-icon night" />;
+        return <WiNightAltLightning className="weather-icon" />;
       case "13d":
-        return <WiSnowflakeCold className="weather-icon day" />;
+        return <WiSnowflakeCold className="weather-icon" />;
       case "13n":
-        return <WiSnowflakeCold className="weather-icon night" />;
+        return <WiSnowflakeCold className="weather-icon" />;
       case "50d":
-        return <WiFog className="weather-icon day" />;
+        return <WiFog className="weather-icon" />;
       case "50n":
-        return <WiNightFog className="weather-icon night" />;
+        return <WiNightFog className="weather-icon" />;
       default:
-        return <WiNa className="weather-icon day" />;
+        return <WiNa className="weather-icon" />;
     }
   };
 
@@ -143,7 +143,7 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img
             className="nav-logo"
             src={logo}
@@ -171,18 +171,20 @@ function App() {
           </button>
         </div>
         <button onClick={changeScale} type="button" className="btn btn-light">
-          <WiCelsius /> / <WiFahrenheit />
+          F | C
         </button>
       </nav>
       <main className="row">
-        <div className="container main-text">
-          {find(icon)}
-          <h1>
+        <div className="container row">
+          <h1 className="temperature">
             {Math.round(currentTemp)}
             <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>
           </h1>
-          <h3>{capitalize(city)}</h3>
-          <h2>{capitalize(description)}</h2>
+          <h3 className="city">{capitalize(city)}</h3>
+          <div className="description">
+            {find(icon)}
+            <h2>{capitalize(description)}</h2>
+          </div>
         </div>
         <div className="sidebar">
           <h3>Weather Details</h3>
