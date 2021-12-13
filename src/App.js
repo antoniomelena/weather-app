@@ -175,15 +175,19 @@ function App() {
         </button>
       </nav>
       <main className="row">
-        <div className="container row">
-          <h1 className="temperature">
+        <div className="container temperature">
+          <h1 className="temperature--numbers">
             {Math.round(currentTemp)}
-            <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>
+            {fahrenheit ? (
+              <WiFahrenheit className="temperature--scale" />
+            ) : (
+              <WiCelsius className="temperature--scale" />
+            )}
           </h1>
           <h3 className="city">{capitalize(city)}</h3>
           <div className="description">
-            {find(icon)}
             <h2>{capitalize(description)}</h2>
+            {find(icon)}
           </div>
         </div>
         <div className="sidebar">
