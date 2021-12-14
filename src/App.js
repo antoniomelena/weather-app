@@ -200,7 +200,7 @@ function App() {
             <h3 className="sidebar-city" onClick={() => setCity("Los Angeles")}>
               Los Angeles
             </h3>
-            <h3 className="sidebar-city" onClick={() => setCity("Pheonix")}>
+            <h3 className="sidebar-city" onClick={() => setCity("Phoenix")}>
               Pheonix
             </h3>
           </div>
