@@ -165,7 +165,6 @@ function App() {
             type="submit"
             className="btn btn-secondary"
             onClick={() => setCity(name)}
-            // onClick={getWeather}
           >
             enter
           </button>
@@ -230,7 +229,6 @@ function App() {
                   <WiStrongWind className="sidebar-icon" />
                   <p>Wind Speed</p>
                 </div>
-                <div className="wind"></div>
                 <p className="wind-degrees sidebar-info">
                   {windSpeed} {fahrenheit ? "mph" : "knots"}
                 </p>

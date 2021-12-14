@@ -71,7 +71,7 @@ main.row {
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 1) 10%,
-    rgba(5, 55, 60, 1) 50% /* rgba(200, 107, 50, 1) 100% */
+    rgba(5, 55, 60, 1) 50%
   );
   display: flex;
   align-items: center;
