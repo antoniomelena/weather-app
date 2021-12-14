@@ -186,8 +186,8 @@ function App() {
           </h1>
           <h3 className="city">{capitalize(city)}</h3>
           <div className="description">
-            <h2>{capitalize(description)}</h2>
             {find(icon)}
+            <h3>{capitalize(description)}</h3>
           </div>
         </div>
         <div className="sidebar">
