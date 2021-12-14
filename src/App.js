@@ -169,10 +169,10 @@ function App() {
           >
             enter
           </button>
+          <button onClick={changeScale} type="button" className="btn btn-scale">
+            F | C
+          </button>
         </div>
-        <button onClick={changeScale} type="button" className="btn btn-light">
-          F | C
-        </button>
       </nav>
       <main className="row">
         <div className="container temperature">
@@ -191,38 +191,63 @@ function App() {
           </div>
         </div>
         <div className="sidebar">
-          <h3>Weather Details</h3>
-          <div className="grid-item">
-            <WiThermometerExterior className="sidebar-icon" />
-            <p>Feels Like </p>
-            <p className="sidebar-info">
-              {Math.round(feelsLike)}
-              <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>
-            </p>
+          <div className="sidebar-cities">
+            <h3 className="sidebar-city" onClick={() => setCity("Austin")}>
+              Austin
+            </h3>
+            <h3 className="sidebar-city" onClick={() => setCity("New York")}>
+              New York
+            </h3>
+            <h3 className="sidebar-city" onClick={() => setCity("Los Angeles")}>
+              Los Angeles
+            </h3>
+            <h3 className="sidebar-city" onClick={() => setCity("Pheonix")}>
+              Pheonix
+            </h3>
           </div>
-          <div className="grid-item">
-            <WiHumidity className="sidebar-icon" />
-            <p>Humidity</p>
-            <p className="sidebar-info">{humidity}%</p>
-          </div>
-          <div className="grid-item">
-            <WiStrongWind className="sidebar-icon" />
-            <p>Wind Speed</p>
-            <div className="wind">
-              <p className="wind-degrees sidebar-info">
-                {windSpeed} {fahrenheit ? "mph" : "knots"}
-              </p>
+          <div className="sidebar-weather">
+            <h3 className="sidebar-title">Weather Details</h3>
+            <div className="grid">
+              <div className="grid-item">
+                <div className="sidebar-icon__container">
+                  <WiThermometerExterior className="sidebar-icon" />
+                  <p>Feels Like </p>
+                </div>
+                <p className="sidebar-info">
+                  {Math.round(feelsLike)}
+                  {fahrenheit ? <WiFahrenheit /> : <WiCelsius />}
+                </p>
+              </div>
+              <div className="grid-item">
+                <div className="sidebar-icon__container">
+                  <WiHumidity className="sidebar-icon" />
+                  <p>Humidity</p>
+                </div>
+                <p className="sidebar-info">{humidity}%</p>
+              </div>
+              <div className="grid-item">
+                <div className="sidebar-icon__container">
+                  <WiStrongWind className="sidebar-icon" />
+                  <p>Wind Speed</p>
+                </div>
+                <div className="wind"></div>
+                <p className="wind-degrees sidebar-info">
+                  {windSpeed} {fahrenheit ? "mph" : "knots"}
+                </p>
+              </div>
+              <div className="grid-item">
+                <div className="sidebar-icon__container">
+                  <WiThermometer className="sidebar-icon" />
+                  <p>High | Low</p>
+                </div>
+                <p className="sidebar-info">
+                  {Math.round(maxTemp)}
+                  {fahrenheit ? <WiFahrenheit /> : <WiCelsius />}|<span> </span>
+                  {Math.round(minTemp)}
+                  {fahrenheit ? <WiFahrenheit /> : <WiCelsius />}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="grid-item">
-            <WiThermometer className="sidebar-icon" />
-            <p>High | Low</p>
-            <p className="sidebar-info">
-              {Math.round(maxTemp)}
-              <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>|
-              {Math.round(minTemp)}
-              <sup>{fahrenheit ? <WiFahrenheit /> : <WiCelsius />}</sup>
-            </p>
           </div>
         </div>
       </main>
